@@ -13,6 +13,7 @@ public class Main {
 
         Statement stmt = connection.createStatement();
         Scanner scan =new Scanner(System.in);
+        createtable(connection);
 
         while(true) {
             System.out.println("---MENU---");
@@ -61,6 +62,14 @@ public class Main {
             System.out.println();
 
         }
+    }
+
+    public static void createtable(Connection connection) throws Exception {
+        Statement stmt = connection.createStatement();
+        String q = "create table if not exists users (id serial primary key,name varchar(20),sname varchar(20),gender varchar(20));";
+        ResultSet results = stmt.executeQuery(q);
+
+
     }
 
     public static void addbook(Connection connection , String Name) throws Exception{
